@@ -10,14 +10,17 @@ import {
 } from '@/components/ui/dropdown-menu'
 import Icon from '@/components/ui/icon'
 
+import ThemeToggle from './theme/toggle'
+
 const Header = () => {
   return (
-    <header className="sticky top-0 z-10 flex items-center justify-between bg-gray-950 px-4 py-4 text-white shadow-md md:px-6">
+    <header className="sticky top-0 z-10 flex items-center justify-between bg-gray-100 px-4 py-4 text-gray-900 shadow-md dark:bg-gray-900 dark:text-white md:px-6">
       <div className="flex items-center gap-2">
         <Icon.wallet className="h-6 w-6" />
         <h1 className="text-xl font-bold">go-dutch</h1>
       </div>
       <div className="flex items-center gap-4">
+        <ThemeToggle />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button

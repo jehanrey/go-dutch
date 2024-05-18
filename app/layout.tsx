@@ -4,8 +4,9 @@ import { Inter } from 'next/font/google'
 import Header from '@/app/_components/header'
 import { cn } from '@/lib/utils'
 
-import './globals.css'
 import Navbar from './_components/nav-bar'
+import ThemeProvider from './_components/theme/provider'
+import './globals.css'
 
 const fontSans = Inter({
   subsets: ['latin'],
@@ -24,17 +25,19 @@ const RootLayout = ({
   children: React.ReactNode
 }>) => {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn('flex h-full min-h-screen flex-col', fontSans.className)}
       >
-        <Header />
-        <div className="flex w-full flex-1 flex-grow flex-col md:flex-row">
-          <Navbar />
-          <main className="flex flex-grow flex-col items-center justify-between *:w-full">
-            {children}
-          </main>
-        </div>
+        <ThemeProvider attribute="class" defaultTheme="system">
+          <Header />
+          <div className="flex w-full flex-1 flex-grow flex-col md:flex-row">
+            <Navbar />
+            <main className="flex flex-grow flex-col items-center justify-between *:w-full dark:bg-gray-950 dark:text-white">
+              {children}
+            </main>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )

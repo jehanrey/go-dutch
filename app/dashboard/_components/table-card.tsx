@@ -10,7 +10,7 @@ interface Props {
 
 const TableCard = ({ title, action, children }: Props) => {
   return (
-    <Card className="bg-gray-950 text-white">
+    <Card className="bg-gray-950 text-white dark:bg-gray-800">
       <CardHeader className="flex flex-row items-center justify-between px-6 py-4">
         <CardTitle className="text-sm font-medium">{title}</CardTitle>
         {action}
