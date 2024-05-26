@@ -1,26 +1,51 @@
 'use client'
 import { useTheme } from 'next-themes'
 
+import { ClientGate } from '@/components/client-gate'
 import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import Icon from '@/components/ui/icon'
-import { cycle } from '@/utils/array'
 
-const states = ['system', 'light', 'dark']
+const states = ['system', 'light', 'dark'] as const
+
+const themeIcon: Record<(typeof states)[number], keyof typeof Icon> = {
+  system: 'sunMoon',
+  light: 'sun',
+  dark: 'moon',
+}
 
 const ThemeToggle = () => {
   const { setTheme, theme } = useTheme()
 
+  const ThemeIcon =
+    Icon[themeIcon[theme as (typeof states)[number]]] ?? (() => <></>)
+
   return (
-    <Button
-      variant="outline"
-      size="icon"
-      onClick={() => setTheme(cycle({ value: theme, states }))}
-    >
-      {(theme === 'dark' && <Icon.moon className="h-[1.2rem] w-[1.2rem]" />) ||
-        (theme === 'light' && (
-          <Icon.sun className="h-[1.2rem] w-[1.2rem]" />
-        )) || <Icon.sunMoon className="h-[1.2rem] w-[1.2rem]" />}
-    </Button>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="link" size="icon">
+          <ClientGate>
+            {() => <ThemeIcon className="h-[1.2rem] w-[1.2rem]" />}
+          </ClientGate>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        {states.map((state) => (
+          <DropdownMenuItem
+            key={state}
+            onClick={() => setTheme(state)}
+            className="capitalize"
+          >
+            {state}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
 
