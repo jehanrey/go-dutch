@@ -1,7 +1,6 @@
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
-import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import Icon from '@/components/ui/icon'
 import {
   Table,
@@ -58,7 +57,7 @@ const Dashboard = () => {
         >
           <Table>
             <TableHeader>
-              <TableRow>
+              <TableRow className="hover:bg-transparent">
                 <TableHead className="whitespace-nowrap">Date</TableHead>
                 <TableHead className="whitespace-nowrap">Description</TableHead>
                 <TableHead className="whitespace-nowrap text-right">
@@ -117,7 +116,7 @@ const Dashboard = () => {
         >
           <Table>
             <TableHeader>
-              <TableRow>
+              <TableRow className="hover:bg-transparent">
                 <TableHead className="whitespace-nowrap">Group Name</TableHead>
                 <TableHead className="whitespace-nowrap">Members</TableHead>
                 <TableHead className="whitespace-nowrap text-right">
