@@ -33,7 +33,7 @@ const RootLayout = ({
           <Header />
           <div className="flex w-full flex-1 flex-grow flex-col md:flex-row">
             <Navbar />
-            <main className="flex flex-grow flex-col items-center justify-between *:w-full dark:bg-gray-950 dark:text-white">
+            <main className="flex flex-grow flex-col items-center justify-between *:w-full dark:bg-black dark:text-white">
               {children}
             </main>
           </div>

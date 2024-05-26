@@ -13,7 +13,7 @@ const DataCard = ({ title, icon = null, value: current, delta }: Props) => {
   const formattedCurrent = `$${current.toLocaleString()}`
   const formattedDelta = `${delta > 0 ? '+' : '-'}${delta}% from last month`
   return (
-    <Card className="border-gray-300 bg-gray-950 text-white dark:border-gray-700 dark:bg-gray-800">
+    <Card className="border-gray-300 bg-gray-950 text-white dark:border-gray-700 dark:bg-gray-900">
       <CardHeader className="flex flex-row items-center justify-between pb-2">
         <CardTitle className="text-sm font-medium">{title}</CardTitle>
         {icon}

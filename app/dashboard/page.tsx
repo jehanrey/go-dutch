@@ -57,7 +57,7 @@ const Dashboard = () => {
         >
           <Table>
             <TableHeader>
-              <TableRow className="hover:bg-transparent">
+              <TableRow className="hover:bg-transparent dark:hover:bg-transparent">
                 <TableHead className="whitespace-nowrap">Date</TableHead>
                 <TableHead className="whitespace-nowrap">Description</TableHead>
                 <TableHead className="whitespace-nowrap text-right">
@@ -116,7 +116,7 @@ const Dashboard = () => {
         >
           <Table>
             <TableHeader>
-              <TableRow className="hover:bg-transparent">
+              <TableRow className="hover:bg-transparent dark:hover:bg-transparent">
                 <TableHead className="whitespace-nowrap">Group Name</TableHead>
                 <TableHead className="whitespace-nowrap">Members</TableHead>
                 <TableHead className="whitespace-nowrap text-right">
